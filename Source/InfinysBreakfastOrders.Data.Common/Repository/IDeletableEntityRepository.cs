@@ -1,4 +1,4 @@
-﻿namespace BlogSystem.Data.Contracts
+﻿namespace InfinysBreakfastOrders.Data.Common.Repository
 {
     using System.Linq;
 
