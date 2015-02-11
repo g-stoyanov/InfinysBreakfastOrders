@@ -3,8 +3,51 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{F86141A4-DA6D-4897-8ECB-0F96B0872892}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{AFCF156A-BD29-4346-8219-DD74409EEA90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{DCED16CD-5405-4307-9338-C33AEE2A2944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfinysBreakfastOrders.Common", "InfinysBreakfastOrders.Common\InfinysBreakfastOrders.Common.csproj", "{4126A5D0-A910-46DC-A1FF-E83324BBE3C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfinysBreakfastOrders.Data.Models", "Data\InfinysBreakfastOrders.Data.Models\InfinysBreakfastOrders.Data.Models.csproj", "{F4C4FC30-A102-47EC-85E1-0501ED5979CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfinysBreakfastOrders.Data", "Data\InfinysBreakfastOrders.Data\InfinysBreakfastOrders.Data.csproj", "{BB26C6DE-0916-42FF-B2A0-0FF5A2325F4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7064BDCB-83F8-4CAE-A83D-F99D5841EE33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfinysBreakfastOrders.Web", "Web\InfinysBreakfastOrders.Web\InfinysBreakfastOrders.Web.csproj", "{3E1CCC37-A56E-460F-871E-371F08089212}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4126A5D0-A910-46DC-A1FF-E83324BBE3C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4126A5D0-A910-46DC-A1FF-E83324BBE3C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4126A5D0-A910-46DC-A1FF-E83324BBE3C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4126A5D0-A910-46DC-A1FF-E83324BBE3C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4C4FC30-A102-47EC-85E1-0501ED5979CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C4FC30-A102-47EC-85E1-0501ED5979CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C4FC30-A102-47EC-85E1-0501ED5979CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C4FC30-A102-47EC-85E1-0501ED5979CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB26C6DE-0916-42FF-B2A0-0FF5A2325F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB26C6DE-0916-42FF-B2A0-0FF5A2325F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB26C6DE-0916-42FF-B2A0-0FF5A2325F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB26C6DE-0916-42FF-B2A0-0FF5A2325F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E1CCC37-A56E-460F-871E-371F08089212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E1CCC37-A56E-460F-871E-371F08089212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E1CCC37-A56E-460F-871E-371F08089212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E1CCC37-A56E-460F-871E-371F08089212}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4C4FC30-A102-47EC-85E1-0501ED5979CB} = {F86141A4-DA6D-4897-8ECB-0F96B0872892}
+		{BB26C6DE-0916-42FF-B2A0-0FF5A2325F4F} = {F86141A4-DA6D-4897-8ECB-0F96B0872892}
+		{3E1CCC37-A56E-460F-871E-371F08089212} = {DCED16CD-5405-4307-9338-C33AEE2A2944}
 	EndGlobalSection
 EndGlobal
