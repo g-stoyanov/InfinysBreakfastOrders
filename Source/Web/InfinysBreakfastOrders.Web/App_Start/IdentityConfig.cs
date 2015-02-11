@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using InfinysBreakfastOrders.Web.Models;
+using InfinysBreakfastOrders.Data.Models;
+using InfinysBreakfastOrders.Data;
 
 namespace InfinysBreakfastOrders.Web
 {

@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using InfinysBreakfastOrders.Web.Models;
+using InfinysBreakfastOrders.Data;
+using InfinysBreakfastOrders.Data.Models;
 
 namespace InfinysBreakfastOrders.Web
 {

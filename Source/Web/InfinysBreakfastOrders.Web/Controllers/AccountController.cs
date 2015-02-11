@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using InfinysBreakfastOrders.Web.Models;
+using InfinysBreakfastOrders.Data.Models;
 
 namespace InfinysBreakfastOrders.Web.Controllers
 {
