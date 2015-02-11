@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using InfinysBreakfastOrders.Data.Common.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Security.Claims;
 using System.Threading.Tasks;
 namespace InfinysBreakfastOrders.Data.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -13,5 +14,15 @@ namespace InfinysBreakfastOrders.Data.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public bool IsDeleted { get; set; }
+
+        public System.DateTime? DeletedOn { get; set; }
+
+        public System.DateTime CreatedOn { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
+
+        public System.DateTime? ModifiedOn { get; set; }
     }
 }

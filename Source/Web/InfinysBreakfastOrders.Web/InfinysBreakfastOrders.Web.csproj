@@ -258,6 +258,10 @@
       <Project>{bb26c6de-0916-42ff-b2a0-0ff5a2325f4f}</Project>
       <Name>InfinysBreakfastOrders.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\InfinysBreakfastOrders.Data.Common\InfinysBreakfastOrders.Data.Common.csproj">
+      <Project>{40e0f2af-8c76-4a28-859b-39353876bf5e}</Project>
+      <Name>InfinysBreakfastOrders.Data.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

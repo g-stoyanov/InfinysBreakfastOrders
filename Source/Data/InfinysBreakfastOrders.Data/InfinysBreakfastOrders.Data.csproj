@@ -53,9 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\InfinysBreakfastOrders.Data.Common\InfinysBreakfastOrders.Data.Common.csproj">
+      <Project>{40e0f2af-8c76-4a28-859b-39353876bf5e}</Project>
+      <Name>InfinysBreakfastOrders.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InfinysBreakfastOrders.Data.Models\InfinysBreakfastOrders.Data.Models.csproj">
       <Project>{f4c4fc30-a102-47ec-85e1-0501ed5979cb}</Project>
       <Name>InfinysBreakfastOrders.Data.Models</Name>
