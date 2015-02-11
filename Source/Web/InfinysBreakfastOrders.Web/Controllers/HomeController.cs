@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InfinysBreakfastOrders.Data;
+using InfinysBreakfastOrders.Data.Common.Repository;
+using InfinysBreakfastOrders.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +11,25 @@ namespace InfinysBreakfastOrders.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private IRepository<Order> orders;
+
+        // Poor man's DI
+        public HomeController()
+            : this(new GenericRepository<Order>(new ApplicationDbContext()))
+        {
+
+        }
+
+        public HomeController(IRepository<Order> orders)
+        {
+            this.orders = orders;
+        }
+
         public ActionResult Index()
         {
-            return View();
-        }
+            var orders = this.orders.All();
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(orders);
         }
     }
 }

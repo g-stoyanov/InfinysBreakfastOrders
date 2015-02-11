@@ -1,6 +1,7 @@
 ﻿using InfinysBreakfastOrders.Data.Common.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
 namespace InfinysBreakfastOrders.Data.Models
@@ -15,6 +16,7 @@ namespace InfinysBreakfastOrders.Data.Models
             return userIdentity;
         }
 
+        [Index]
         public bool IsDeleted { get; set; }
 
         public System.DateTime? DeletedOn { get; set; }
