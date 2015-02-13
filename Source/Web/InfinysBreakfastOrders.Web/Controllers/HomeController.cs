@@ -13,13 +13,6 @@ namespace InfinysBreakfastOrders.Web.Controllers
     {
         private IRepository<Order> orders;
 
-        // Poor man's DI
-        public HomeController()
-            : this(new GenericRepository<Order>(new ApplicationDbContext()))
-        {
-
-        }
-
         public HomeController(IRepository<Order> orders)
         {
             this.orders = orders;
