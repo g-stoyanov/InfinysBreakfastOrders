@@ -14,7 +14,8 @@ namespace InfinysBreakfastOrders.Web.InputModels.Orders
 
         [AllowHtml]
         [Display(Name = "Order Text")]
-        [DataType(DataType.MultilineText)]
+        [DataType("tinymce_full")]
+        [UIHint("tinymce_full")]
         public string OrderText { get; set; }
     }
 }
