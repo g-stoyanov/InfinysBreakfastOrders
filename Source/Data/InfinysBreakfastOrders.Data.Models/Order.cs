@@ -12,6 +12,8 @@
 
         public string OrderText { get; set; }
 
+        public DateTime OrderDate { get; set; }
+
         [Index]
         public bool IsDeleted { get; set; }
 

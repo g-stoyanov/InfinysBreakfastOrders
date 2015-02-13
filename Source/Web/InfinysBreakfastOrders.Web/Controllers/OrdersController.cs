@@ -20,7 +20,8 @@ namespace InfinysBreakfastOrders.Web.Controllers
         [HttpGet]
         public ActionResult NewOrder()
         {
-            return Content("GET");
+            var model = new OrderInputModel();
+            return View(model);
         }
 
         [HttpPost]
