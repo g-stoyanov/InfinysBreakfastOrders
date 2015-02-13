@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfinysBreakfastOrders.Web"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfinysBreakfastOrders.Data.Common", "InfinysBreakfastOrders.Data.Common\InfinysBreakfastOrders.Data.Common.csproj", "{40E0F2AF-8C76-4A28-859B-39353876BF5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfinysBreakfastOrders.Web.Infastructure", "Web\InfinysBreakfastOrders.Web.Infastructure\InfinysBreakfastOrders.Web.Infastructure.csproj", "{283E0257-03A1-422A-A582-8E18662DF6DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{40E0F2AF-8C76-4A28-859B-39353876BF5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40E0F2AF-8C76-4A28-859B-39353876BF5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40E0F2AF-8C76-4A28-859B-39353876BF5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{283E0257-03A1-422A-A582-8E18662DF6DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{283E0257-03A1-422A-A582-8E18662DF6DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{283E0257-03A1-422A-A582-8E18662DF6DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{283E0257-03A1-422A-A582-8E18662DF6DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +62,6 @@ Global
 		{BB26C6DE-0916-42FF-B2A0-0FF5A2325F4F} = {F86141A4-DA6D-4897-8ECB-0F96B0872892}
 		{3E1CCC37-A56E-460F-871E-371F08089212} = {DCED16CD-5405-4307-9338-C33AEE2A2944}
 		{40E0F2AF-8C76-4A28-859B-39353876BF5E} = {F86141A4-DA6D-4897-8ECB-0F96B0872892}
+		{283E0257-03A1-422A-A582-8E18662DF6DC} = {DCED16CD-5405-4307-9338-C33AEE2A2944}
 	EndGlobalSection
 EndGlobal
