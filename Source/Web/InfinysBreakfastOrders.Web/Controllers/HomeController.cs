@@ -13,15 +13,17 @@ namespace InfinysBreakfastOrders.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private IRepository<Order> orders;
+        private IDeletableEntityRepository<Order> orders;
 
-        public HomeController(IRepository<Order> orders)
+        public HomeController(IDeletableEntityRepository<Order> orders)
         {
             this.orders = orders;
         }
 
         public ActionResult Index()
         {
+            //this.orders.Delete(1);
+            this.orders.SaveChanges();
             var orders = this.orders.All().Project().To<IndexOrderViewModel>();
 
             return View(orders);

@@ -13,6 +13,7 @@ namespace InfinysBreakfastOrders.Web.App_Start
     using System.Data.Entity;
     using InfinysBreakfastOrders.Data;
     using InfinysBreakfastOrders.Data.Common.Repository;
+    using InfinysBreakfastOrders.Data.Models;
 
     public static class NinjectWebCommon 
     {
@@ -64,9 +65,10 @@ namespace InfinysBreakfastOrders.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind(typeof(IRepository<Order>)).To(typeof(DeletableEntityRepository<Order>));
             kernel.Bind<DbContext>().To<ApplicationDbContext>();
             kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
-            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>)); 
         }        
     }
 }
