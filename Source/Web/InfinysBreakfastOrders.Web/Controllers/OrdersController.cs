@@ -1,4 +1,6 @@
-﻿using InfinysBreakfastOrders.Web.InputModels.Orders;
+﻿using InfinysBreakfastOrders.Data.Common.Repository;
+using InfinysBreakfastOrders.Data.Models;
+using InfinysBreakfastOrders.Web.InputModels.Orders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,13 @@ namespace InfinysBreakfastOrders.Web.Controllers
 {
     public class OrdersController : Controller
     {
+        private IDeletableEntityRepository<Order> orders;
+
+        public OrdersController(IDeletableEntityRepository<Order> orders)
+        {
+            this.orders = orders;
+        }
+
         // GET: Orders
         public ActionResult Index()
         {
@@ -27,7 +36,21 @@ namespace InfinysBreakfastOrders.Web.Controllers
         [HttpPost]
         public ActionResult NewOrder(OrderInputModel input)
         {
-            return Content("POST");
+            if (ModelState.IsValid)
+            {
+                var order = new Order
+                    {
+                        OrderDate = input.OrderDate,
+                        OrderText = input.OrderText
+                    };
+
+                this.orders.Add(order);
+                this.orders.SaveChanges();
+
+                this.RedirectToAction("Index", "Home");
+            }
+
+            return this.View(input);
         }
     }
 }
