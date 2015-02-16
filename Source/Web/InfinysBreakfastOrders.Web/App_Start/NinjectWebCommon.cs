@@ -14,6 +14,7 @@ namespace InfinysBreakfastOrders.Web.App_Start
     using InfinysBreakfastOrders.Data;
     using InfinysBreakfastOrders.Data.Common.Repository;
     using InfinysBreakfastOrders.Data.Models;
+    using InfinysBreakfastOrders.Web.Infastructure;
 
     public static class NinjectWebCommon 
     {
@@ -68,7 +69,8 @@ namespace InfinysBreakfastOrders.Web.App_Start
             kernel.Bind(typeof(IRepository<Order>)).To(typeof(DeletableEntityRepository<Order>));
             kernel.Bind<DbContext>().To<ApplicationDbContext>();
             kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
-            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>)); 
+            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind<ISanitizer>().To<HtmlAgilityPackSanitizer>();
         }        
     }
 }

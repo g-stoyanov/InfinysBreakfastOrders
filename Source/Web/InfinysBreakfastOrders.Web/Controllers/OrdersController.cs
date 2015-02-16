@@ -11,22 +11,24 @@ using InfinysBreakfastOrders.Web.ViewModels.Home;
 using AutoMapper.QueryableExtensions;
 using InfinysBreakfastOrders.Data;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity.Core.Objects;
+using InfinysBreakfastOrders.Web.Infastructure;
 
 namespace InfinysBreakfastOrders.Web.Controllers
 {
     public class OrdersController : Controller
     {
-        private IDeletableEntityRepository<Order> orders;
+        private readonly IDeletableEntityRepository<Order> orders;
 
-        protected ApplicationDbContext ApplicationDbContext { get; set; }
+        private readonly IDeletableEntityRepository<ApplicationUser> users;
 
-        protected UserManager<ApplicationUser> UserManager { get; set; }
+        private readonly ISanitizer sanitizer;
 
-        public OrdersController(IDeletableEntityRepository<Order> orders)
+        public OrdersController(IDeletableEntityRepository<Order> orders, IDeletableEntityRepository<ApplicationUser> users, ISanitizer sanitizer)
         {
             this.orders = orders;
-            this.ApplicationDbContext = new ApplicationDbContext();
-            this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.ApplicationDbContext));
+            this.users = users;
+            this.sanitizer = sanitizer;
         }
 
         // GET: Orders
@@ -44,21 +46,39 @@ namespace InfinysBreakfastOrders.Web.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult NewOrder(OrderInputModel input)
         {
+
             if (ModelState.IsValid)
             {
+                var currUserId = User.Identity.GetUserId();
+
+                var user = (from u in this.users.All()
+                            where u.Id == currUserId
+                            select u).FirstOrDefault();
+
+                var orderWithSameDate = (from o in user.Orders
+                                        where o.OrderDate.Date == input.OrderDate.Date
+                                        select o).FirstOrDefault();
+
+                if (orderWithSameDate != null)
+                {
+                    return this.View(input);
+                }
+
                 var order = new Order
                     {
+                        AuthorId = currUserId,
                         OrderDate = input.OrderDate,
-                        OrderText = input.OrderText
+                        OrderText = sanitizer.Sanitize(input.OrderText)
                     };
 
                 this.orders.Add(order);
                 this.orders.SaveChanges();
 
-                this.RedirectToAction("Index", "Home");
+                this.RedirectToAction("Home", "Index");
             }
 
             return this.View(input);
@@ -69,13 +89,13 @@ namespace InfinysBreakfastOrders.Web.Controllers
         {
             //this.orders.Delete(1);
             //this.orders.SaveChanges();
+            var currUserId = User.Identity.GetUserId();
+            var user = (from u in this.users.All()
+                        where u.Id == currUserId
+                        select u).FirstOrDefault();
 
-            var user = this.UserManager.FindById(User.Identity.GetUserId());
-            var currentOrders = from order in this.orders.All()
-                                where order.User == user
-                                select order;
 
-            var orders = currentOrders.Project().To<IndexOrderViewModel>();
+            var orders = user.Orders.OrderByDescending(o => o.OrderDate);
 
             return View(orders);
         }

@@ -9,7 +9,7 @@ namespace InfinysBreakfastOrders.Web.ViewModels.Home
 {
     public class IndexOrderViewModel : IMapFrom<Order>
     {
-        public string Username { get; set; }
+        public ApplicationUser Author { get; set; }
 
         public string OrderText { get; set; }
     }

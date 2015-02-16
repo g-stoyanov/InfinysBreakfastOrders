@@ -1,6 +1,7 @@
 ﻿using InfinysBreakfastOrders.Data.Common.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -26,5 +27,7 @@ namespace InfinysBreakfastOrders.Data.Models
         public bool PreserveCreatedOn { get; set; }
 
         public System.DateTime? ModifiedOn { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
