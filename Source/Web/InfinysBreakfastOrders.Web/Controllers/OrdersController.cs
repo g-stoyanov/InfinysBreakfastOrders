@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using InfinysBreakfastOrders.Web.ViewModels.Home;
+using AutoMapper.QueryableExtensions;
+using InfinysBreakfastOrders.Data;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace InfinysBreakfastOrders.Web.Controllers
 {
@@ -13,9 +18,15 @@ namespace InfinysBreakfastOrders.Web.Controllers
     {
         private IDeletableEntityRepository<Order> orders;
 
+        protected ApplicationDbContext ApplicationDbContext { get; set; }
+
+        protected UserManager<ApplicationUser> UserManager { get; set; }
+
         public OrdersController(IDeletableEntityRepository<Order> orders)
         {
             this.orders = orders;
+            this.ApplicationDbContext = new ApplicationDbContext();
+            this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.ApplicationDbContext));
         }
 
         // GET: Orders
@@ -51,6 +62,22 @@ namespace InfinysBreakfastOrders.Web.Controllers
             }
 
             return this.View(input);
+        }
+
+        [Authorize]
+        public ActionResult MyOrders()
+        {
+            //this.orders.Delete(1);
+            //this.orders.SaveChanges();
+
+            var user = this.UserManager.FindById(User.Identity.GetUserId());
+            var currentOrders = from order in this.orders.All()
+                                where order.User == user
+                                select order;
+
+            var orders = currentOrders.Project().To<IndexOrderViewModel>();
+
+            return View(orders);
         }
     }
 }

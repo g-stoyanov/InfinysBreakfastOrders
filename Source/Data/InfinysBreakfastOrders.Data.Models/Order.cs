@@ -1,9 +1,10 @@
 ﻿namespace InfinysBreakfastOrders.Data.Models
 {
     using InfinysBreakfastOrders.Data.Common.Models;
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
     public class Order : AuditInfo, IDeletableEntity
     {
@@ -18,5 +19,7 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual IdentityUser User { get; set; }
     }
 }

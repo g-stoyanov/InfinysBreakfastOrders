@@ -9,6 +9,7 @@ namespace InfinysBreakfastOrders.Web.InputModels.Orders
 {
     public class OrderInputModel
     {
+        [DataType(DataType.Date)]
         [Display(Name = "Order Date")]
         public DateTime OrderDate { get; set; }
 
