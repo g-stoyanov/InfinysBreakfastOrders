@@ -12,7 +12,7 @@ namespace InfinysBreakfastOrders.Data.Migrations
             this.AutomaticMigrationsEnabled = true;
 
             // TODO: Remove in production!!!
-            this.AutomaticMigrationDataLossAllowed = true;
+            //this.AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(ApplicationDbContext context)
