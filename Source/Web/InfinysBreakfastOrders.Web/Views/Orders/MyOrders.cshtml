@@ -16,8 +16,12 @@
             <div class="col-md-2">
                 <h4>@order.OrderDate.ToShortDateString()</h4>
             </div>
-            <div class="col-md-10">
-                <h4>@order.OrderText</h4>
+            <div class="col-md-8">
+                <h4>@Html.Raw(order.OrderText)</h4>
+            </div>
+            <div class="col-md-2">
+                <input type="button" class="btn btn-info" title="Edit" value="..." onclick="location.href='@Url.Action("EditOrder", "Orders", new { id = order.Id })'" />
+                <input type="button" class="btn btn-danger" title="Delete" value="X" onclick="location.href='@Url.Action("Delete", "Orders", new { id = order.Id })'" />
             </div>
         </div>
         <hr />

@@ -15,6 +15,7 @@
 
         public string OrderText { get; set; }
 
+        [DataType("datetime2")]
         public DateTime OrderDate { get; set; }
 
         [Index]
