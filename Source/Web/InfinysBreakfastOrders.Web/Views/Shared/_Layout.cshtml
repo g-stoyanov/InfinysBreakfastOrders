@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Infinys Breakfast Orders</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bundlecss")
 
 </head>
 <body>
@@ -36,8 +36,8 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bundleappjquery")
+    @Scripts.Render("~/bundles/bundleappbootstrap")
     @RenderSection("scripts", required: false)  
 
     <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
