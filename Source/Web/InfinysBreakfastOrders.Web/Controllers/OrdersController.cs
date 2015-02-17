@@ -185,7 +185,7 @@ namespace InfinysBreakfastOrders.Web.Controllers
                                          where o.OrderDate.Date == input.OrderDate.Date && !o.IsDeleted
                                          select o).FirstOrDefault();
 
-                if (orderWithSameDate != null)
+                if (orderWithSameDate != null && orderWithSameDate.Id != id)
                 {
                     return RedirectToAction("MyOrders", "Orders");
                 }
