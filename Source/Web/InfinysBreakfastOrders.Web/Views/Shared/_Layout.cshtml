@@ -44,9 +44,11 @@
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
     <script type='text/javascript'>
-        $(function () {
-            $('#date-picker').datepicker();
-        })
+        $(document).ready(function () {
+            $("#date-picker").datepicker({
+                dateFormat: 'yy/mm/dd'
+            })
+        });
     </script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 {
     <div class="row">
         @Html.LabelFor(model => model.OrderDate)
-        @Html.TextBoxFor(model => model.OrderDate, new { id = "date-picker", @Value = DateTime.Now.Date })
+        @Html.TextBoxFor(model => model.OrderDate, new { id = "date-picker", @Value = DateTime.Now.Date.ToShortDateString() })
     </div>
 
     <hr />
