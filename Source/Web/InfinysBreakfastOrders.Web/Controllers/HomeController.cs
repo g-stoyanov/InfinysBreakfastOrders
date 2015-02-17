@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
-using System.Data.Entity.Core.Objects;
+using System.Data.Entity;
 
 namespace InfinysBreakfastOrders.Web.Controllers
 {
@@ -27,7 +27,7 @@ namespace InfinysBreakfastOrders.Web.Controllers
             //this.orders.Delete(1);
             //this.orders.SaveChanges();
             var currentOrders = from order in this.orders.All()
-                                where EntityFunctions.TruncateTime(order.OrderDate) == EntityFunctions.TruncateTime(DateTime.Now)
+                                where DbFunctions.TruncateTime(order.OrderDate) == DbFunctions.TruncateTime(DateTime.Now)
                 select order;
 
             var orders = currentOrders.Project().To<IndexOrderViewModel>();           
